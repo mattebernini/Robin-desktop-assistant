@@ -65,7 +65,7 @@ public class ArchivioComandoAzione
         } catch (SQLException e) {System.err.println(e.getMessage());}    
     }
     
-    public String getAzione(String comando)
+    public String get_azione(String comando)
     {
         String ris = "nessuna azione";
         for(int i = 0; i < comandi.length; i++)

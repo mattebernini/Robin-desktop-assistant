@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -44,7 +45,7 @@ public class Robin extends Application {
             @Override
             public void run() {
                 Platform.runLater(() -> {
-                    comando_capito.setText(comando_capito.aggiorna_output());
+                    comando_capito.setText(comando_capito.mostra_nuovo_comando());
                 });
             }
         }, 0, 1000);
@@ -59,6 +60,8 @@ public class Robin extends Application {
         Group root = new Group(label_nome_utente, tabella, grafico, label_comando_capito, comando_capito);
         Scene scene = new Scene(root, 1000,700);
         stage.setTitle("Robin");
+        Image icona = new Image("file:./img/batman's robin.jpg");
+        stage.getIcons().add(icona);
         stage.setScene(scene);
         stage.show();
     }

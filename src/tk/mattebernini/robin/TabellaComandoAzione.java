@@ -13,9 +13,9 @@ import tk.mattebernini.robin.ParametriDiConfigurazione;
 
 public class TabellaComandoAzione extends TableView
 {
-    ParametriDiConfigurazione params;
-    ArchivioComandoAzione db;
-    EventoDiNavigazioneGUI ev_nav_GUI;
+    private ParametriDiConfigurazione params;
+    private ArchivioComandoAzione db;
+    private EventoDiNavigazioneGUI ev_nav_GUI;
     
     public TabellaComandoAzione()
     {

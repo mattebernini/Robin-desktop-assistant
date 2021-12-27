@@ -40,7 +40,7 @@ public class AssistenteVocale extends Thread
             while ((result = recognize.getResult()) != null) 
             {
                 String comando = result.getHypothesis();
-                String azione = db.getAzione(comando);
+                String azione = db.get_azione(comando);
                 boolean capito = false;
                 
                 if(is_eseguibile(azione))

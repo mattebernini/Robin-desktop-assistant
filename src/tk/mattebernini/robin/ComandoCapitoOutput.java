@@ -13,18 +13,17 @@ public class ComandoCapitoOutput extends TextField
     {
         super();
         
-        setWidth(500);
+        setMinWidth(400);
         setLayoutX(30); setLayoutY(570);
         setEditable(false);
         setStyle("-fx-font-weight: bold; -fx-font-size: 20px;");
     }
 
-    public String aggiorna_output() 
+    public String mostra_nuovo_comando() 
     {
         String nuovo_comando = "";
         try {  
             nuovo_comando = new String(Files.readAllBytes(Paths.get("./comando_capito.txt")));
-            System.out.println("aggiorno output gui: " + nuovo_comando);
 
         } catch (IOException ex) {
             System.out.println("errore: impossibile mostare comando capito!");

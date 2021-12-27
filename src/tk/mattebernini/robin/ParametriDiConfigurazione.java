@@ -48,16 +48,6 @@ public class ParametriDiConfigurazione
         params = new Parametri();        
         //validaFileConfigurazione();
         leggiFileDiConfigurazione();
-        /*params.IP_server_log = "localhost";
-        params.porta_server_log = 8080;
-        params.IP_db = "localhost";
-        params.porta_db = 3306;
-        params.nome_db = "robin";
-        params.user_db = "root";
-        String[] c = {"robin open directory 1", "robin open link 1", "robin open program 1"};
-        params.comandi = c;
-        params.exe_browser = "C:\\Users\\matte\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe";
-        params.giorni_visualizzati_grafico = 7;*/
     }
     private static void validaFileConfigurazione() 
     {
