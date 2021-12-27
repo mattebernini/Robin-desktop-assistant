@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="Parametri">
+        
+        <xs:complexType>
+            <xs:sequence>
+
+                <xs:element name="IP_server_log" type="xs:string"/>
+                <xs:element name="porta_server_log" type="xs:int"/>
+
+                <xs:element name="IP_db" type="xs:string"/>
+                <xs:element name="porta_db" type="xs:int"/>
+                <xs:element name="nome_db" type="xs:string"/>
+                <xs:element name="user_db" type="xs:string"/>
+
+                <xs:element name="comandi" type="xs:string"
+                            minOccurs="1"  maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+            
+    </xs:element>
+</xs:schema>
