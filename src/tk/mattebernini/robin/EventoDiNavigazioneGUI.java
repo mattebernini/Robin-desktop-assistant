@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.net.Socket;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import static jdk.nashorn.internal.objects.NativeError.printStackTrace;
 
 class Evento implements Serializable{
     public String msg;
@@ -24,7 +25,7 @@ public class EventoDiNavigazioneGUI
     private String IP_server_log;
     private int porta_server_log;
     
-    public EventoDiNavigazioneGUI()
+    public EventoDiNavigazioneGUI() 
     {
         ParametriDiConfigurazione params = new ParametriDiConfigurazione();
         IP_server_log = params.get_IP_server_log();

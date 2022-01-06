@@ -36,6 +36,6 @@ public class GraficoUtilizzoGiornaliero extends LineChart<Number,Number>
         // stile
         setLayoutX(600); setLayoutY(450);
         setMaxSize(400, 250);
-
+        setStyle("-fx-color: white; -fx-text-fill: #f9ca24; ");
     }
 }

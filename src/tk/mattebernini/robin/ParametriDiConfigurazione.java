@@ -1,4 +1,3 @@
-
 package tk.mattebernini.robin;
 
 import com.thoughtworks.xstream.*; 
@@ -20,21 +19,27 @@ import javax.xml.validation.SchemaFactory;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
-class Parametri implements Serializable
+class CredenzialiServerLog implements Serializable
 {
-    public String IP_server_log;
-    public int porta_server_log;
-    
-    public String IP_db;
-    public int porta_db;
-    public String nome_db;
-    public String user_db;
-    
+    public String IP;
+    public int porta;
+}
+class CredenzialiArchivi implements Serializable
+{
+    public String IP;
+    public int porta;
+    public String nome;
+    public String user;
+}
+
+class Parametri implements Serializable
+{    
+    public CredenzialiArchivi archivio;
+    public CredenzialiServerLog server_log;
     public String[] comandi;
-    
     public String exe_browser;
-    
     public int giorni_visualizzati_grafico;
+    public String nome_utente;
     
     public Parametri(){}
 }
@@ -46,7 +51,7 @@ public class ParametriDiConfigurazione
     public ParametriDiConfigurazione()
     {
         params = new Parametri();        
-        //validaFileConfigurazione();
+        validaFileConfigurazione();
         leggiFileDiConfigurazione();
     }
     private static void validaFileConfigurazione() 
@@ -63,7 +68,7 @@ public class ParametriDiConfigurazione
           else
             System.out.println(e.getMessage());    
         }
-        System.out.println("Validazione andata a buon fine"); 
+        //System.out.println("Validazione andata a buon fine"); 
     }
     public static void leggiFileDiConfigurazione()
     {
@@ -74,14 +79,16 @@ public class ParametriDiConfigurazione
         params = (Parametri)xs.fromXML(file_xml);
     }
     
-    public String get_IP_server_log(){ return params.IP_server_log; }
-    public int get_porta_server_log(){ return params.porta_server_log; }
-    public String get_IP_db(){ return params.IP_db; }
-    public int get_porta_db(){ return params.porta_db; }
-    public String get_nome_db(){ return params.nome_db; }
-    public String get_user_db(){ return params.user_db; }
-    public String[] getComandi() { return params.comandi; };
+    public String get_IP_server_log(){ return params.server_log.IP; }
+    public int get_porta_server_log(){ return params.server_log.porta; }
+    public String get_IP_db(){ return params.archivio.IP; }
+    public int get_porta_db(){ return params.archivio.porta; }
+    public String get_nome_db(){ return params.archivio.nome; }
+    public String get_user_db(){ return params.archivio.user; }
+    public String[] get_comandi() { return params.comandi; };
     public int get_giorni_visualizzati_grafico(){ return params.giorni_visualizzati_grafico; }
     public String get_exe_browser() { return params.exe_browser; }
-    int giorni_visualizzati_grafico() { return params.giorni_visualizzati_grafico; }
+    public int giorni_visualizzati_grafico() { return params.giorni_visualizzati_grafico; }
+    public String getNome_utente() { return params.nome_utente; }
+
 }

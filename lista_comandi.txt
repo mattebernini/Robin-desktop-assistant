@@ -1,12 +1,35 @@
-Robin open directory 
-Robin open link 
-Robin run program 
-1
-2
-3
-4
-5
-6
-7
-8
-9
+Robin open directory 1
+Robin open link 1
+Robin run program 1
+Robin open file 1
+Robin close directory 1
+Robin close link 1
+Robin close program 1
+Robin close file 1
+
+Robin open directory 2
+Robin open link 2
+Robin run program 2
+Robin open file 2
+Robin close directory 2
+Robin close link 2
+Robin close program 2
+Robin close file 2
+
+Robin open directory 3
+Robin open link 3
+Robin run program 3
+Robin open file 3
+Robin close directory 3
+Robin close link 3
+Robin close program 3
+Robin close file 3
+
+Robin open directory 4
+Robin open link 4
+Robin run program 4
+Robin open file 4
+Robin close directory 4
+Robin close link 4
+Robin close program 4
+Robin close file 4

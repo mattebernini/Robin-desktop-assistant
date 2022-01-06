@@ -24,7 +24,7 @@ public class ArchivioComandoAzione
         porta_db = params.get_porta_db();
         nome_db = params.get_nome_db();
         user_db = params.get_user_db();
-        comandi = params.getComandi();
+        comandi = params.get_comandi();
     }
     
     public String[] getAzioni(int dim)
@@ -69,9 +69,11 @@ public class ArchivioComandoAzione
     {
         String ris = "nessuna azione";
         for(int i = 0; i < comandi.length; i++)
-        {
-            //System.out.println(comandi[i].toUpperCase() +" == "+ comando.toUpperCase());
-            if(comandi[i].toUpperCase().equals(comando.toUpperCase()))
+        {            
+            String comando_params = comandi[i].toUpperCase();
+            String comando_chiudi = comando_params.replaceAll("OPEN", "CLOSE");
+                    
+            if(comando_params.equals(comando.toUpperCase()) || comando_chiudi.equals(comando.toUpperCase()))
             {
                 //System.out.println(i);
                 try ( Connection co = DriverManager.getConnection("jdbc:mysql://"+ IP_db+":"+ porta_db+"/"+nome_db, user_db,"");  
@@ -82,6 +84,8 @@ public class ArchivioComandoAzione
                         {
                             //System.out.print(rs.getString("azione"));
                             ris = rs.getString("azione");
+                            if(comando_chiudi.equals(comando.toUpperCase()))
+                                ris = ris.concat(" chiudi");
                         }
                 } catch (SQLException e) {System.err.println(e.getMessage());}     
             }

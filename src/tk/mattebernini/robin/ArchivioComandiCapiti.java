@@ -24,7 +24,7 @@ public class ArchivioComandiCapiti
         porta_db = params.get_porta_db();
         nome_db = params.get_nome_db();
         user_db = params.get_user_db();
-        comandi = params.getComandi();
+        comandi = params.get_comandi();
         giorni_da_visualizzare = params.get_giorni_visualizzati_grafico();
     }
     

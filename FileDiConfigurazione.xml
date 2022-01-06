@@ -1,12 +1,17 @@
+<?xml version="1.0"?>
 <Parametri>
 
-    <IP_server_log>localhost</IP_server_log>
-    <porta_server_log>8080</porta_server_log>
-
-    <IP_db>localhost</IP_db>
-    <porta_db>3306</porta_db>
-    <nome_db>robin</nome_db>
-    <user_db>root</user_db>
+    <server_log>
+        <IP>localhost</IP>
+        <porta>8080</porta>
+    </server_log>
+    
+    <archivio>
+        <IP>localhost</IP>
+        <porta>3306</porta>
+        <nome>robin</nome>
+        <user>root</user>
+    </archivio> 
     
     <comandi>robin open directory 1</comandi>
     <comandi>robin open link 1</comandi>
@@ -17,8 +22,17 @@
     <comandi>robin open directory 3</comandi>
     <comandi>robin open link 3</comandi>
     <comandi>robin run program 3</comandi>
+    <comandi>robin open file 1</comandi>
+    <comandi>robin open file 2</comandi>
+    <comandi>robin open file 3</comandi>
+
 
     <exe_browser>C:\\Users\\matte\\AppData\\Local\\Google\\Chrome\\Application\\chrome.exe</exe_browser>
-    <giorni_visualizzati_grafico>7</giorni_visualizzati_grafico>
+    <giorni_visualizzati_grafico>4</giorni_visualizzati_grafico>
+    <nome_utente>Matteo</nome_utente>
     
 </Parametri>
+
+<!-- 
+    
+-->

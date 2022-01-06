@@ -8,6 +8,7 @@ import javafx.event.EventHandler;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.scene.layout.Background;
 import tk.mattebernini.robin.ParametriDiConfigurazione;
 
 
@@ -24,12 +25,12 @@ public class TabellaComandoAzione extends TableView
         db = new ArchivioComandoAzione();
         ev_nav_GUI = new EventoDiNavigazioneGUI();
         
-        TableColumn colonna_comando = new TableColumn("comando");
+        TableColumn colonna_comando = new TableColumn("COMANDO");
         colonna_comando.setCellValueFactory(
             new PropertyValueFactory<ComandoAzione, String>("comando"));
         colonna_comando.setCellFactory(TextFieldTableCell.forTableColumn());
         
-        TableColumn colonna_azione = new TableColumn("azione");
+        TableColumn colonna_azione = new TableColumn("AZIONE");
         colonna_azione.setCellValueFactory(
             new PropertyValueFactory<ComandoAzione, String>("azione"));
         colonna_azione.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -57,23 +58,26 @@ public class TabellaComandoAzione extends TableView
         setItems(dati);
         getColumns().addAll(colonna_comando, colonna_azione);
         
-        // stile
-        setLayoutX(10); setLayoutY(45);
-        setMaxHeight(350);  
-        setMinWidth(800);
-        colonna_azione.setMinWidth(500);
-        colonna_comando.setMinWidth(300);
-        setStyle("");
+        imposta_stile(colonna_azione, colonna_comando);
     }
     private ObservableList<ComandoAzione> getDati()
     {
         ObservableList<ComandoAzione> ris = FXCollections.observableArrayList();
         ArchivioComandoAzione db = new ArchivioComandoAzione();        
-        String[] comandi = params.getComandi();
+        String[] comandi = params.get_comandi();
         String[] azioni = db.getAzioni(comandi.length);
         for(int i = 0; i < comandi.length; ++i)
             ris.add(new ComandoAzione(comandi[i], azioni[i]));
         return ris;
+    }
+
+    private void imposta_stile(TableColumn colonna_azione, TableColumn colonna_comando) 
+    {
+        setLayoutX(10); setLayoutY(55);
+        setMaxHeight(350);  
+        setMinWidth(800);
+        colonna_azione.setMinWidth(500);
+        colonna_comando.setMinWidth(300);
     }
         
     public class ComandoAzione
